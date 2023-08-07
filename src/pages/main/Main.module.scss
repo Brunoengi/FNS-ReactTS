@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-around;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(99, 99, 99);
+    padding: 1rem;
+    border-radius: 15px;
+}
