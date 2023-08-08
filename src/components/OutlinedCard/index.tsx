@@ -27,7 +27,7 @@ const card = (title: string, children: React.ReactNode)  => (
 
 export default function OutlinedCard({title, children}: Icard) {
   return (
-    <Box sx={{ minWidth: 275 }}>
+    <Box sx={{ minWidth: 275, display:'flex', justifyContent:'start' }}>
       <Card variant="outlined">{card(title, children)}</Card>
     </Box>
   );
