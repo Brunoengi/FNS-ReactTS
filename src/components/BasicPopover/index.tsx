@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import PopOver from 'types/IPopOver';
 import Box from '@mui/material/Box';
 
-export default function BasicPopover( {label = '---', text, variant = 'outlined', size = 'medium'} : PopOver) {
+export default function BasicPopover( {labelPopOver = '---', textPopOver, variant = 'outlined', size = 'medium'} : PopOver) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -27,7 +27,7 @@ export default function BasicPopover( {label = '---', text, variant = 'outlined'
         onClick={handleClick} 
         size={size}
         >
-        {label}
+        {labelPopOver}
       </Button>
       <Popover
         id={id}
@@ -39,7 +39,7 @@ export default function BasicPopover( {label = '---', text, variant = 'outlined'
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 1 }}>{text}</Typography>
+        <Typography sx={{ p: 1 }}>{textPopOver}</Typography>
       </Popover>
     </Box>
   );

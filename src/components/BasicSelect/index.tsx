@@ -5,8 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import ISelect, {IdataValue} from 'types/ISelect';
+import styles from './BasicSelect.module.scss'
 
-export default function BasicSelect({dataset}: ISelect) {
+export default function BasicSelect({dataset = [], labelSelect, context, endText = ''}: ISelect) {
 
   const [data, setData] = React.useState('');
   
@@ -15,21 +16,33 @@ export default function BasicSelect({dataset}: ISelect) {
   };
 
   return (
-    <Box sx={{width: '15ch'}}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+    <Box>
+      <FormControl  sx={{ m: 1, width: '15ch' }} size='small'>
+        <InputLabel 
+          id="demo-simple-select-label"
+        >
+          {context}
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={data}
-          label="Age"
+          label={labelSelect}
           onChange={handleChange}
+          inputProps={{
+            IconComponent: () => <div className={styles.endText}>{endText}</div>,
+          }}
         >
-            {dataset.map((el: any) => (<MenuItem
-              value={el}
-            >
-              {el}
-            </MenuItem>))}
+            {dataset ? dataset.map((el: IdataValue['dataValue']) => (
+              <MenuItem
+                sx={{
+                  textAlign: 'center'
+                }}
+                value={el}
+              >
+                {el}
+              </MenuItem>)) : ''
+            }
         </Select>
       </FormControl>
     </Box>

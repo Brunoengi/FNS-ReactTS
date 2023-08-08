@@ -10,65 +10,14 @@ import BasicSelect from 'components/BasicSelect';
 export default function main() {
 
   const info = {
-    Possiblefck: [20, 25, 30, 35, 40 , 45 ,50, 55, 60, 65, 70 ,75, 80, 85, 90]
-    
+    Possiblefck: [20, 25, 30, 35, 40 , 45 ,50, 55, 60, 65, 70 ,75, 80, 85, 90],
+    Possiblefyk: ['500 (CA-50)', '600 (CA-60)']
   }
 
   return (
     <>
     <Menu/>
     <main>
-      <div className={styles.card}>
-        <p>Propriedades Geométricas</p>
-        <div className={styles.lineForm}>
-          <TextField
-            size='small'
-            label="b"
-            id="width-section"
-            sx={{ m: 1, width: '15ch' }}
-            InputProps={{
-              endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-            }}
-          />
-          <BasicPopover
-            label='?'
-            text='Largura da viga retangular'
-          />
-        </div>
-
-        <div className={styles.lineForm}>
-          <TextField
-            size='small'
-            label="h"
-            id="height-section"
-            sx={{ m: 1, width: '15ch' }}
-            InputProps={{
-              endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-            }}
-          />
-          <BasicPopover
-            label='?'
-            text='Altura da viga retangular'
-          />
-        </div>
-
-        <div className={styles.lineForm}>
-          <TextField
-            size='small'
-            label="d"
-            id="uselfull-heigth-section"
-            sx={{ m: 1, width: '15ch' }}
-            InputProps={{
-              endAdornment: <InputAdornment position="end">cm</InputAdornment>,
-            }}
-          />
-          <BasicPopover
-            label='?'
-            text='"Altura útil da viga retangular, distância da borda mais comprimida ao centroide da armadura. H – (cobrimento + diâmetro da armadura transversal/estribos + metade do diâmetro da armadura longitudinal)"'
-          />
-        </div>
-      </div>
-
       <div className={styles.card}>
         <p>Propriedades dos Materiais</p>
         <div className={styles.lineForm}>
@@ -82,8 +31,8 @@ export default function main() {
             }}
           />
           <BasicPopover
-            label='?'
-            text='Resistência caracterísitca a compressão do concreto'
+            labelPopOver='?'
+            textPopOver='Resistência caracterísitca a compressão do concreto'
           />
         </div>
 
@@ -98,8 +47,8 @@ export default function main() {
             }}
           />
           <BasicPopover
-            label='?'
-            text='Um texto de teste'
+            labelPopOver='?'
+            textPopOver='Um texto de teste'
           />
         </div>
 
@@ -114,8 +63,8 @@ export default function main() {
             }}
           />
           <BasicPopover
-            label='?'
-            text='Tensão de escoamento característica do aço'
+            labelPopOver='?'
+            textPopOver='Tensão de escoamento característica do aço'
           />
         </div>
 
@@ -131,8 +80,8 @@ export default function main() {
             sx={{ m: 1, width: '15ch' }}
           />
           <BasicPopover
-            label='?'
-            text='Coeficiente Parcial de Segurança para o concreto'
+            labelPopOver='?'
+            textPopOver='Coeficiente Parcial de Segurança para o concreto'
           />
         </div>
 
@@ -144,8 +93,8 @@ export default function main() {
             sx={{ m: 1, width: '15ch' }}
           />
           <BasicPopover
-            label='?'
-            text='Coeficiente Parcial de Segurança para o aço'
+            labelPopOver='?'
+            textPopOver='Coeficiente Parcial de Segurança para o aço'
           />
         </div>
         <div className={styles.lineForm}>
@@ -156,8 +105,8 @@ export default function main() {
             sx={{ m: 1, width: '15ch' }}
           />
           <BasicPopover
-            label='?'
-            text='Coeficiente Parcial de Segurança para o momento'
+            labelPopOver='?'
+            textPopOver='Coeficiente Parcial de Segurança para o momento'
           />
         </div>
       </div>
@@ -175,8 +124,8 @@ export default function main() {
             }}
           />
           <BasicPopover
-            label='?'
-            text='Um texto de teste'
+            labelPopOver='?'
+            textPopOver='Um texto de teste'
           />
         </div>
 
@@ -188,8 +137,8 @@ export default function main() {
             sx={{ m: 1, width: '15ch' }}
           />
           <BasicPopover
-            label='?'
-            text='Um texto de teste'
+            labelPopOver='?'
+            textPopOver='Um texto de teste'
           />
         </div>
       </div>
@@ -202,6 +151,7 @@ export default function main() {
             labelText='b'
             id='width-section'
             textPopOver='Largura da viga retangular'
+            
           />
           <LineForm
             unit='cm'
@@ -211,15 +161,36 @@ export default function main() {
           />
             <LineForm
             unit='cm'
-            labelText='h'
+            labelText='d'
             id='uselfull-heigth-section'
             textPopOver='Altura útil da viga retangular, distância da borda mais comprimida ao centroide da armadura. H – (cobrimento + diâmetro da armadura transversal/estribos + metade do diâmetro da armadura longitudinal)'
           />
-          <BasicSelect
-            dataset={info.Possiblefck}
-          />
           
         </>
+      </OutlinedCard>
+
+      <OutlinedCard
+        title='Propriedades dos Materiais'
+      >
+        <div> 
+          <LineForm
+            dataset={info.Possiblefck}
+            context={<div>f<sub>ck</sub></div>}
+            labelSelect={'fck'}
+            endText='MPa'
+            type='select'
+            textPopOver='Tensão caracterísitica do concreto'
+          />
+          <LineForm
+            dataset={info.Possiblefyk}
+            context={<div>f<sub>yk</sub></div>}
+            labelSelect={'fyk'}
+            endText='MPa'
+            type='select'
+            textPopOver='Tensão caracterísitica do aço'
+          />
+          
+        </div>
       </OutlinedCard>
 
     </main>
