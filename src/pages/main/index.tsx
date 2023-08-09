@@ -77,6 +77,28 @@ export default function main() {
         </div>
       </OutlinedCard>
 
+      <OutlinedCard
+        title='Coeficientes Parciais de Segurança'
+      >
+        <div> 
+          <LineForm
+            labelText={<div>{String.fromCharCode(968)}<sub>c</sub></div>}
+            id='qsic'
+            textPopOver='Coeficiente Parcial de Segurança para o concreto'
+          />         
+          <LineForm
+            labelText={<div>{String.fromCharCode(968)}<sub>s</sub></div>}
+            id='qsis'
+            textPopOver='Coeficiente Parcial de Segurança para o aço'
+          /> 
+          <LineForm
+            labelText={<div>{String.fromCharCode(968)}<sub>f</sub></div>}
+            id='qsif'
+            textPopOver='Coeficiente Parcial de Segurança para o momento'
+          />  
+        </div>
+      </OutlinedCard>
+
     </main>
     </>
   )
