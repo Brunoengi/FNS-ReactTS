@@ -37,10 +37,3 @@ export default function LineForm({ labelText = '', id = '', width = '15ch', unit
     </div>
   )
 }
-
-/* select: (<BasicSelect
-      dataset={dataset}
-      context={<div>f<sub>ck</sub></div>}
-      label={'fck'}
-      endText='MPa'
-    />) */

@@ -1,5 +1,25 @@
-main {
+.painel{
+    display: flex;
+}
+
+.inputsContainer {
     display: flex;
     font-size: 1rem;
     justify-content:start;
+}
+
+.canvasContainer {
+    width: 100%;
+    display: flex;
+}
+
+.calculateButton {
+    display: inline;
+    text-align: center;
+    margin: auto auto;
+}
+
+.canvasContainer > * {
+    max-width: 300px;
+    max-height: 300px;
 }

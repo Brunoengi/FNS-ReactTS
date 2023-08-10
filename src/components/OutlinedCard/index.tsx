@@ -17,7 +17,7 @@ const bull = (
 const card = (title: string, children: React.ReactNode)  => (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+      <Typography sx={{ fontSize: 10, textAlign:'center' }} color="text.secondary" gutterBottom>
         {title}
       </Typography> 
       {children}
@@ -27,7 +27,7 @@ const card = (title: string, children: React.ReactNode)  => (
 
 export default function OutlinedCard({title, children}: Icard) {
   return (
-    <Box sx={{ minWidth: 275, display:'flex', justifyContent:'start' }}>
+    <Box sx={{display:'flex', justifyContent:'start' }}>
       <Card variant="outlined">{card(title, children)}</Card>
     </Box>
   );
