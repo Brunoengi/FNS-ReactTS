@@ -4,8 +4,8 @@ import OutlinedCard from 'components/OutlinedCard';
 import LineForm from 'components/LineForm';
 import { LineChart } from 'components/LineChart';
 import BasicButton from 'components/BasicButton';
-import { useState } from 'react'
-import IFormValues from 'types/IFormValues';
+import { useContext } from 'react';
+import { MainFormContext } from 'context/MainFormContext';
 
 export default function Main() {
 
@@ -15,22 +15,11 @@ export default function Main() {
     PossibleE: [190, 200, 210]
   }
 
-  const [ inputValue, setInputValue ] = useState<IFormValues>({
-    b: '',
-    h: '',
-    d: '',
-    fck: '',
-    fyk: '',
-    E: '',
-    qsic: '',
-    qsis: '',
-    qsif: '',
-    serviceBendingMoment: '',
-    beta: '',
-  })
+  const formInputs = useContext(MainFormContext)
 
   return (
     <>
+
       <Menu />
       <div className={styles.painel}>
         <div className={styles.inputsContainer}>
