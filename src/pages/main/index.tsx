@@ -4,8 +4,8 @@ import OutlinedCard from 'components/OutlinedCard';
 import LineForm from 'components/LineForm';
 import { LineChart } from 'components/LineChart';
 import BasicButton from 'components/BasicButton';
-import { useContext } from 'react';
-import { MainFormContext } from 'context/MainFormContext';
+import { MainFormProvider } from 'context/MainFormContext';
+
 
 export default function Main() {
 
@@ -15,129 +15,129 @@ export default function Main() {
     PossibleE: [190, 200, 210]
   }
 
-  const formInputs = useContext(MainFormContext)
-
   return (
     <>
 
-      <Menu />
-      <div className={styles.painel}>
-        <div className={styles.inputsContainer}>
-          <OutlinedCard
-            title='Propriedades Geométricas'
-          >
-            <>
-              <LineForm
-                unit='cm'
-                labelText='b'
-                id='width-section'
-                textPopOver='Largura da viga retangular'
+      <MainFormProvider>
+        <Menu />
+        <div className={styles.painel}>
+          <div className={styles.inputsContainer}>
+            <OutlinedCard
+              title='Propriedades Geométricas'
+            >
+              <>
+                <LineForm
+                  unit='cm'
+                  labelText='b'
+                  id='width-section'
+                  textPopOver='Largura da viga retangular'
 
-              />
-              <LineForm
-                unit='cm'
-                labelText='h'
-                id='height-section'
-                textPopOver='Altura da viga retangular'
-              />
-              <LineForm
-                unit='cm'
-                labelText='d'
-                id='uselfull-heigth-section'
-                textPopOver='Altura útil da viga retangular, distância da borda mais comprimida ao centroide da armadura. H – (cobrimento + diâmetro da armadura transversal/estribos + metade do diâmetro da armadura longitudinal)'
-              />
+                />
+                <LineForm
+                  unit='cm'
+                  labelText='h'
+                  id='height-section'
+                  textPopOver='Altura da viga retangular'
+                />
+                <LineForm
+                  unit='cm'
+                  labelText='d'
+                  id='uselfull-heigth-section'
+                  textPopOver='Altura útil da viga retangular, distância da borda mais comprimida ao centroide da armadura. H – (cobrimento + diâmetro da armadura transversal/estribos + metade do diâmetro da armadura longitudinal)'
+                />
 
-            </>
-          </OutlinedCard>
+              </>
+            </OutlinedCard>
 
-          <OutlinedCard
-            title='Propriedades dos Materiais'
-          >
-            <div>
-              <LineForm
-                dataset={info.Possiblefck}
-                context={<div>f<sub>ck</sub></div>}
-                labelSelect={'fck'}
-                endText='MPa'
-                type='select'
-                textPopOver='Tensão caracterísitica do concreto'
-              />
-              <LineForm
-                dataset={info.Possiblefyk}
-                context={<div>f<sub>yk</sub></div>}
-                labelSelect={'fyk'}
-                endText='MPa'
-                type='select'
-                textPopOver='Tensão de escoamento caracterísitica do aço'
-              />
-              <LineForm
-                dataset={info.PossibleE}
-                context={<div>E</div>}
-                labelSelect={'E'}
-                endText='GPa'
-                type='select'
-                textPopOver='Módulo de elasticidade do aço'
-              />
+            <OutlinedCard
+              title='Propriedades dos Materiais'
+            >
+              <div>
+                <LineForm
+                  dataset={info.Possiblefck}
+                  context={<div>f<sub>ck</sub></div>}
+                  labelSelect={'fck'}
+                  endText='MPa'
+                  type='select'
+                  textPopOver='Tensão caracterísitica do concreto'
+                />
+                <LineForm
+                  dataset={info.Possiblefyk}
+                  context={<div>f<sub>yk</sub></div>}
+                  labelSelect={'fyk'}
+                  endText='MPa'
+                  type='select'
+                  textPopOver='Tensão de escoamento caracterísitica do aço'
+                />
+                <LineForm
+                  dataset={info.PossibleE}
+                  context={<div>E</div>}
+                  labelSelect={'E'}
+                  endText='GPa'
+                  type='select'
+                  textPopOver='Módulo de elasticidade do aço'
+                />
 
-            </div>
-          </OutlinedCard>
+              </div>
+            </OutlinedCard>
 
-          <OutlinedCard
-            title='Coeficientes Parciais de Segurança'
-          >
-            <div>
-              <LineForm
-                labelText={<div>{String.fromCharCode(968)}<sub>c</sub></div>}
-                id='qsic'
-                textPopOver='Coeficiente Parcial de Segurança para o concreto'
-              />
-              <LineForm
-                labelText={<div>{String.fromCharCode(968)}<sub>s</sub></div>}
-                id='qsis'
-                textPopOver='Coeficiente Parcial de Segurança para o aço'
-              />
-              <LineForm
-                labelText={<div>{String.fromCharCode(968)}<sub>f</sub></div>}
-                id='qsif'
-                textPopOver='Coeficiente Parcial de Segurança para o momento'
-              />
-            </div>
-          </OutlinedCard>
+            <OutlinedCard
+              title='Coeficientes Parciais de Segurança'
+            >
+              <div>
+                <LineForm
+                  labelText={<div>{String.fromCharCode(968)}<sub>c</sub></div>}
+                  id='qsic'
+                  textPopOver='Coeficiente Parcial de Segurança para o concreto'
+                />
+                <LineForm
+                  labelText={<div>{String.fromCharCode(968)}<sub>s</sub></div>}
+                  id='qsis'
+                  textPopOver='Coeficiente Parcial de Segurança para o aço'
+                />
+                <LineForm
+                  labelText={<div>{String.fromCharCode(968)}<sub>f</sub></div>}
+                  id='qsif'
+                  textPopOver='Coeficiente Parcial de Segurança para o momento'
+                />
+              </div>
+            </OutlinedCard>
 
-          <OutlinedCard
-            title='Esforços'
-          >
-            <>
-              <LineForm
-                unit='kNm'
-                labelText='M.F.S.'
-                id='bending-moment'
-                textPopOver='Momento Fletor de Serviço'
+            <OutlinedCard
+              title='Esforços'
+            >
+              <>
+                <LineForm
+                  unit='kNm'
+                  labelText='M.F.S.'
+                  id='bending-moment'
+                  textPopOver='Momento Fletor de Serviço'
 
-              />
-              <LineForm
-                labelText='Coef.Beta'
-                id='beta-coefficient'
-                textPopOver='Coeficiente beta de redistribuição dos momentos'
-              />
+                />
+                <LineForm
+                  labelText='Coef.Beta'
+                  id='beta-coefficient'
+                  textPopOver='Coeficiente beta de redistribuição dos momentos'
+                />
 
-            </>
-          </OutlinedCard>
+              </>
+            </OutlinedCard>
+          </div>
+          <div className={styles.calculateButton}>
+            <BasicButton
+              text='Calcular'
+              variant='outlined'
+            />
+          </div>
         </div>
-        <div className={styles.calculateButton}>
-          <BasicButton
-            text='Calcular'
-            variant='outlined'
-          />
+
+
+        <div className={styles.canvasContainer}>
+          <LineChart />
+          <LineChart />
+          <LineChart />
         </div>
-      </div>
-
-
-      <div className={styles.canvasContainer}>
-        <LineChart />
-        <LineChart />
-        <LineChart />
-      </div>
+      </MainFormProvider>
     </>
   )
 }
