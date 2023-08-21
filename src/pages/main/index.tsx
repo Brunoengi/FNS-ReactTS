@@ -10,9 +10,16 @@ import { MainFormProvider } from 'context/MainFormContext';
 export default function Main() {
 
   const info = {
-    Possiblefck: [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90],
-    Possiblefyk: ['500 (CA-50)', '600 (CA-60)'],
-    PossibleE: [190, 200, 210]
+    Possiblefck: [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90], //MPa
+    Possiblefyk: [{
+      textLabel: '500 (CA-50)',
+      value: 500
+    },
+    {
+      textLabel: '600 (CA-50)',
+      value: 600
+    }], //MPa
+    PossibleE: [190, 200, 210] //GPa
   }
 
   return (
@@ -29,20 +36,20 @@ export default function Main() {
                 <LineForm
                   unit='cm'
                   labelText='b'
-                  id='width-section'
+                  id='b'
                   textPopOver='Largura da viga retangular'
 
                 />
                 <LineForm
                   unit='cm'
                   labelText='h'
-                  id='height-section'
+                  id='h'
                   textPopOver='Altura da viga retangular'
                 />
                 <LineForm
                   unit='cm'
                   labelText='d'
-                  id='uselfull-heigth-section'
+                  id='d'
                   textPopOver='Altura útil da viga retangular, distância da borda mais comprimida ao centroide da armadura. H – (cobrimento + diâmetro da armadura transversal/estribos + metade do diâmetro da armadura longitudinal)'
                 />
 
@@ -60,6 +67,7 @@ export default function Main() {
                   endText='MPa'
                   type='select'
                   textPopOver='Tensão caracterísitica do concreto'
+                  id='fck'
                 />
                 <LineForm
                   dataset={info.Possiblefyk}
@@ -68,6 +76,7 @@ export default function Main() {
                   endText='MPa'
                   type='select'
                   textPopOver='Tensão de escoamento caracterísitica do aço'
+                  id='fyk'
                 />
                 <LineForm
                   dataset={info.PossibleE}
@@ -76,6 +85,7 @@ export default function Main() {
                   endText='GPa'
                   type='select'
                   textPopOver='Módulo de elasticidade do aço'
+                  id='E'
                 />
 
               </div>
@@ -110,13 +120,13 @@ export default function Main() {
                 <LineForm
                   unit='kNm'
                   labelText='M.F.S.'
-                  id='bending-moment'
+                  id='serviceBendingMoment'
                   textPopOver='Momento Fletor de Serviço'
 
                 />
                 <LineForm
                   labelText='Coef.Beta'
-                  id='beta-coefficient'
+                  id='beta'
                   textPopOver='Coeficiente beta de redistribuição dos momentos'
                 />
 

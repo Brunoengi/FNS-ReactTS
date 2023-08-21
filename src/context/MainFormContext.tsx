@@ -3,37 +3,28 @@ import IFormValues from 'types/IFormValues'
 
 interface InputContext {
   inputsValue: IFormValues,
-  setInputsValue: React.Dispatch<React.SetStateAction<IFormValues>>
+  changeInputValue: (key: allInputsName, newValue: number) => void
 }
 
-type allInputsName = 'b' | 'h' | 'd' | 'fck' | 'fyk' | 'E' | 'qsic' | 'qsis' | 'qsif' | 'serviceBendingMoment' | 'beta'
+export type allInputsName = 'b' | 'h' | 'd' | 'fck' | 'fyk' | 'E' | 'qsic' | 'qsis' | 'qsif' | 'serviceBendingMoment' | 'beta'
 
-export const MainFormContext = createContext<InputContext| null>(null)
+export const MainFormContext = createContext<InputContext>(
+  {inputsValue: {b:'', h:'', d:'', fck:'', fyk:'', E:'', qsic:'', qsis:'', qsif:'', serviceBendingMoment:'', beta:''},
+  changeInputValue(key, newValue) {
+}})
 
 export const MainFormProvider = ({children}: {children: any}) => {
 
-  const [ inputsValue, setInputsValue ] = useState<IFormValues>({
-    b: '',
-    h: '',
-    d: '',
-    fck: '',
-    fyk: '',
-    E: '',
-    qsic: '',
-    qsis: '', 
-    qsif: '',
-    serviceBendingMoment: '',
-    beta: '',
-  })
+  const [ inputsValue, setInputsValue ] = useState<IFormValues>({b:'', h:'', d:'', fck:'', fyk:'', E:'', qsic:'', qsis:'', qsif:'', serviceBendingMoment:'', beta:''})
 
-  function changeInputValue(key: allInputsName, newValue: string) {
+  function changeInputValue(key: allInputsName, newValue: number) {
     setInputsValue(inputsValue => ({...inputsValue, [key]: newValue}))
   }
 
   return (
     <MainFormContext.Provider value={{
       inputsValue,
-      setInputsValue
+      changeInputValue
     }}>
       {children}
     </MainFormContext.Provider>

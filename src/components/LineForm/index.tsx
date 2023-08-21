@@ -4,9 +4,13 @@ import BasicPopover from "components/BasicPopover"
 import styles from './LineForm.module.scss'
 import ILineForm from "types/ILineForm"
 import BasicSelect from "components/BasicSelect"
+import { useContext } from "react"
+import { MainFormContext } from "context/MainFormContext"
 
 
-export default function LineForm({ labelText = '', id = '', width = '15ch', unit, labelPopOver = '?', textPopOver, type = 'input', dataset = [], context, labelSelect, endText }: ILineForm) {
+export default function LineForm({ labelText = '', id, width = '15ch', unit, labelPopOver = '?', textPopOver, type = 'input', dataset = [], context, labelSelect, endText }: ILineForm) {
+
+  const { inputsValue, changeInputValue } = useContext(MainFormContext)
 
   const typeLine = {
     input: (<TextField
@@ -14,6 +18,7 @@ export default function LineForm({ labelText = '', id = '', width = '15ch', unit
       label={labelText}
       id={id}
       sx={{ m: 1, width: { width } }}
+      onChange={(e) => changeInputValue(id, Number(e.target.value))}
       InputProps={{
         endAdornment: <InputAdornment position="end">{unit}</InputAdornment>,
       }}
@@ -23,6 +28,7 @@ export default function LineForm({ labelText = '', id = '', width = '15ch', unit
       context={context}
       labelSelect={labelSelect}
       endText={endText}
+      id={id}
     />)
   }
 
