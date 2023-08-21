@@ -15,7 +15,7 @@ export default function BasicSelect({ dataset = [], labelSelect, context, endTex
   console.log(dataset)
   return (
     <Box>
-      <FormControl sx={{ m: 1, width: '15ch' }} size='small'>
+      <FormControl sx={{ m: 1, width: '20ch' }} size='small'>
         <InputLabel>
           {context}
         </InputLabel>

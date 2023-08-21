@@ -20,8 +20,8 @@ export default function BasicPopover( {labelPopOver = '---', textPopOver, varian
   const id = open ? 'simple-popover' : undefined;
 
   return (
-    <Box sx={{'& button': { m: 0 } }}>
-      <Button sx={{width:'10px'}}
+    <Box sx={{'& button': { m: 0} }}>
+      <Button sx={{width:'10px',mx:0, px:0 }}
         aria-describedby={id} 
         variant={variant} 
         onClick={handleClick} 
@@ -29,7 +29,8 @@ export default function BasicPopover( {labelPopOver = '---', textPopOver, varian
         >
         {labelPopOver}
       </Button>
-      <Popover
+      <Popover 
+        sx={{mx:0, px:0}}
         id={id}
         open={open}
         anchorEl={anchorEl}

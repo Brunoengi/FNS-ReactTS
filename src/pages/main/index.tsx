@@ -5,6 +5,7 @@ import LineForm from 'components/LineForm';
 import { LineChart } from 'components/LineChart';
 import BasicButton from 'components/BasicButton';
 import { MainFormProvider } from 'context/MainFormContext';
+import dimension from 'scripts/main';
 
 
 export default function Main() {
@@ -137,6 +138,7 @@ export default function Main() {
             <BasicButton
               text='Calcular'
               variant='outlined'
+              activeFunction={dimension}
             />
           </div>
         </div>
