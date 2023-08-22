@@ -1,4 +1,3 @@
-import IButton from "./IButton"
 
 export default interface IBasicButton {
   text: string,

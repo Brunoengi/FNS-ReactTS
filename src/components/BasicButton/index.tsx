@@ -1,5 +1,5 @@
 import Button from '@mui/material/Button';
-import IBasicButton from 'types/IBasicButton';
+import IBasicButton from 'types/components/IBasicButton';
 import { MainFormContext } from 'context/MainFormContext';
 import { useContext } from 'react';
 

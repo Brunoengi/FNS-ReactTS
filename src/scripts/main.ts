@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import IFormValues from "types/IFormValues";
+import IFormValues from "types/context/IFormValues";
 
 export default function dimension(inputsValue: IFormValues) {
 

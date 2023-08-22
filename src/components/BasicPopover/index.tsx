@@ -2,7 +2,7 @@ import * as React from 'react';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import PopOver from 'types/IPopOver';
+import PopOver from 'types/components/IPopOver';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 

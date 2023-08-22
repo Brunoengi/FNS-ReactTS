@@ -10,7 +10,7 @@ import imgGeometric from 'img/geometric.png'
 
 export default function Main() {
 
-  const info = {
+  const infoInputs = {
     Possiblefck: [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90], //MPa
     Possiblefyk: [{
       textLabel: '500 (CA-50)',
@@ -23,7 +23,9 @@ export default function Main() {
     PossibleE: [190, 200, 210] //GPa
   }
 
- const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+  const infoChart = {
+    labels: [0,50]
+  }
 
   return (
     <>
@@ -67,7 +69,7 @@ export default function Main() {
             >
               <div>
                 <LineForm
-                  dataset={info.Possiblefck}
+                  dataset={infoInputs.Possiblefck}
                   context={<div>f<sub>ck</sub></div>}
                   labelSelect={'fck'}
                   endText='MPa'
@@ -76,7 +78,7 @@ export default function Main() {
                   id='fck'
                 />
                 <LineForm
-                  dataset={info.Possiblefyk}
+                  dataset={infoInputs.Possiblefyk}
                   context={<div>f<sub>yk</sub></div>}
                   labelSelect={'fyk'}
                   endText='MPa'
@@ -85,7 +87,7 @@ export default function Main() {
                   id='fyk'
                 />
                 <LineForm
-                  dataset={info.PossibleE}
+                  dataset={infoInputs.PossibleE}
                   context={<div>E</div>}
                   labelSelect={'E'}
                   endText='GPa'
@@ -162,7 +164,7 @@ export default function Main() {
               },
             }}
             data={{
-              labels,
+              labels: infoChart.labels,
               datasets: [
                 {
                   label: 'Dataset 1',

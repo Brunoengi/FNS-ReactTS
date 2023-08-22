@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react'
-import IFormValues from 'types/IFormValues'
 
 export type allInputsName = 'b' | 'h' | 'd' | 'fck' | 'fyk' | 'E' | 'qsic' | 'qsis' | 'qsif' | 'serviceBendingMoment' | 'beta'
 
@@ -10,8 +9,8 @@ interface InputContext {
 
 export const MainFormContext = createContext<InputContext>(
   {inputsValue: {b:'', h:'', d:'', fck:'', fyk:'', E:'', qsic:'', qsis:'', qsif:'', serviceBendingMoment:'', beta:''},
-  changeInputValue(key, newValue) {
-}})
+  changeInputValue(key, newValue) {},
+})
 
 export const MainFormProvider = ({children}: {children: any}) => {
 

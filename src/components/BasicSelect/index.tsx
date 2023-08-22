@@ -3,7 +3,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import ISelect from 'types/ISelect';
+import ISelect from 'types/components/ISelect';
 import styles from './BasicSelect.module.scss'
 import { useContext } from 'react';
 import { MainFormContext } from 'context/MainFormContext';
