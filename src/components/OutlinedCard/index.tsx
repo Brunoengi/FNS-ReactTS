@@ -10,14 +10,13 @@ const bull = (
     component="span"
     sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
   >
-    •
   </Box>
 );
 
 const card = (title: string, children: React.ReactNode)  => (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontSize: 10, textAlign:'center' }} color="text.secondary" gutterBottom>
+      <Typography sx={{color:'text.secondary', fontSize: 10, textAlign:'center' }} gutterBottom>
         {title}
       </Typography> 
       {children}

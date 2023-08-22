@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.geometricContainer{
+    display: flex;
+}
+
 .inputsContainer {
     display: flex;
     font-size: 1rem;
@@ -11,6 +15,7 @@
 .canvasContainer {
     width: 100%;
     display: flex;
+    justify-content: start;
 }
 
 .calculateButton {

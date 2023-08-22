@@ -3,7 +3,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import ISelect, { IdataValue } from 'types/ISelect';
+import ISelect from 'types/ISelect';
 import styles from './BasicSelect.module.scss'
 import { useContext } from 'react';
 import { MainFormContext } from 'context/MainFormContext';
@@ -24,7 +24,7 @@ export default function BasicSelect({ dataset = [], labelSelect, context, endTex
           label={labelSelect}
           onChange={(e) => changeInputValue(id, Number(e.target.value))}
           inputProps={{
-            IconComponent: () => <div className={styles.endText}>{endText}</div>,
+            IconComponent: () => <Box sx={{ color:'text.secondary' }} className={styles.endText}>{endText}</Box>,
           }}
         >
           {dataset.map((element) => (

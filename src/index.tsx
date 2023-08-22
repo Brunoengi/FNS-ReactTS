@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Main from 'pages/main'
 import '@fontsource/roboto';
-import DarkTheme from 'themes/DarkTheme';
+import LightTheme from 'themes/activeTheme';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <DarkTheme>
+    <LightTheme>
       <Main/>
-    </DarkTheme>
+    </LightTheme>
   </React.StrictMode>
 );

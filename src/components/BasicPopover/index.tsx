@@ -4,13 +4,16 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import PopOver from 'types/IPopOver';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 
-export default function BasicPopover( {labelPopOver = '---', textPopOver, variant = 'outlined', size = 'medium'} : PopOver) {
+export default function BasicPopover( {labelPopOver = '---', textPopOver, variant = 'contained', size = 'medium'} : PopOver) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const theme = useTheme();
 
   const handleClose = () => {
     setAnchorEl(null);

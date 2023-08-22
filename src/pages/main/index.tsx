@@ -6,7 +6,7 @@ import { LineChart } from 'components/LineChart';
 import BasicButton from 'components/BasicButton';
 import { MainFormProvider } from 'context/MainFormContext';
 import dimension from 'scripts/main';
-
+import imgGeometric from 'img/geometric.png'
 
 export default function Main() {
 
@@ -23,9 +23,10 @@ export default function Main() {
     PossibleE: [190, 200, 210] //GPa
   }
 
+ const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+
   return (
     <>
-
       <MainFormProvider>
         <Menu />
         <div className={styles.painel}>
@@ -33,7 +34,11 @@ export default function Main() {
             <OutlinedCard
               title='Propriedades Geométricas'
             >
-              <>
+              <div className={styles.geometricContainer}>
+                <>
+                  <img src={imgGeometric} alt="Geometric design" />
+                </>
+                <div>
                 <LineForm
                   unit='cm'
                   labelText='b'
@@ -53,8 +58,8 @@ export default function Main() {
                   id='d'
                   textPopOver='Altura útil da viga retangular, distância da borda mais comprimida ao centroide da armadura. H – (cobrimento + diâmetro da armadura transversal/estribos + metade do diâmetro da armadura longitudinal)'
                 />
-
-              </>
+                </div>
+              </div>
             </OutlinedCard>
 
             <OutlinedCard
@@ -137,17 +142,44 @@ export default function Main() {
           <div className={styles.calculateButton}>
             <BasicButton
               text='Calcular'
-              variant='outlined'
+              variant='contained'
               activeFunction={dimension}
             />
           </div>
         </div>
-
-
         <div className={styles.canvasContainer}>
-          <LineChart />
-          <LineChart />
-          <LineChart />
+          <LineChart 
+            options={{
+              responsive: true,
+              plugins: {
+                legend: {
+                  position: 'top' as const,
+                },
+                title: {
+                  display: true,
+                  text: 'Chart.js Line Chart',
+                },
+              },
+            }}
+            data={{
+              labels,
+              datasets: [
+                {
+                  label: 'Dataset 1',
+                  data: [1,2,3,4,5],
+                  borderColor: 'rgb(255, 99, 132)',
+                  backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                },
+                {
+                  label: 'Dataset 2',
+                  data: [5,6,7,8,9],
+                  borderColor: 'rgb(53, 162, 235)',
+                  backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                },
+              ],
+            }}
+          />
+
         </div>
       </MainFormProvider>
     </>
