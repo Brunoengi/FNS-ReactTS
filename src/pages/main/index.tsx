@@ -7,6 +7,7 @@ import BasicButton from 'components/BasicButton';
 import { MainFormProvider } from 'context/MainFormContext';
 import dimension from 'scripts/main';
 import imgGeometric from 'img/geometric.png'
+import LatexText from 'components/LatexText';
 
 export default function Main() {
 
@@ -24,7 +25,23 @@ export default function Main() {
   }
 
   const infoChart = {
-    labels: [0,50]
+    data: {
+      labels: [0, 50],
+      datasets: [
+        {
+          label: 'Dataset 1',
+          data: [1, 2, 3, 4, 5],
+          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+        {
+          label: 'Dataset 2',
+          data: [5, 6, 7, 8, 9],
+          borderColor: 'rgb(53, 162, 235)',
+          backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+      ],
+    }
   }
 
   return (
@@ -41,25 +58,25 @@ export default function Main() {
                   <img src={imgGeometric} alt="Geometric design" />
                 </>
                 <div>
-                <LineForm
-                  unit='cm'
-                  labelText='b'
-                  id='b'
-                  textPopOver='Largura da viga retangular'
+                  <LineForm
+                    unit='cm'
+                    labelText='b'
+                    id='b'
+                    textPopOver='Largura da viga retangular'
 
-                />
-                <LineForm
-                  unit='cm'
-                  labelText='h'
-                  id='h'
-                  textPopOver='Altura da viga retangular'
-                />
-                <LineForm
-                  unit='cm'
-                  labelText='d'
-                  id='d'
-                  textPopOver='Altura útil da viga retangular, distância da borda mais comprimida ao centroide da armadura. H – (cobrimento + diâmetro da armadura transversal/estribos + metade do diâmetro da armadura longitudinal)'
-                />
+                  />
+                  <LineForm
+                    unit='cm'
+                    labelText='h'
+                    id='h'
+                    textPopOver='Altura da viga retangular'
+                  />
+                  <LineForm
+                    unit='cm'
+                    labelText='d'
+                    id='d'
+                    textPopOver='Altura útil da viga retangular, distância da borda mais comprimida ao centroide da armadura. H – (cobrimento + diâmetro da armadura transversal/estribos + metade do diâmetro da armadura longitudinal)'
+                  />
                 </div>
               </div>
             </OutlinedCard>
@@ -150,7 +167,7 @@ export default function Main() {
           </div>
         </div>
         <div className={styles.canvasContainer}>
-          <LineChart 
+          <LineChart
             options={{
               responsive: true,
               plugins: {
@@ -163,26 +180,11 @@ export default function Main() {
                 },
               },
             }}
-            data={{
-              labels: infoChart.labels,
-              datasets: [
-                {
-                  label: 'Dataset 1',
-                  data: [1,2,3,4,5],
-                  borderColor: 'rgb(255, 99, 132)',
-                  backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                },
-                {
-                  label: 'Dataset 2',
-                  data: [5,6,7,8,9],
-                  borderColor: 'rgb(53, 162, 235)',
-                  backgroundColor: 'rgba(53, 162, 235, 0.5)',
-                },
-              ],
-            }}
+            data={infoChart.data}
           />
 
         </div>
+        <LatexText/>
       </MainFormProvider>
     </>
   )

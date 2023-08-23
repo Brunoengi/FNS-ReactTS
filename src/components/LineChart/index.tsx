@@ -10,7 +10,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
 import ILineChart from 'types/components/ILineChart';
 
 ChartJS.register(
@@ -22,11 +21,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-
 
 export function LineChart({options, data}: ILineChart) {
   return <Line options={options} data={data} />;
