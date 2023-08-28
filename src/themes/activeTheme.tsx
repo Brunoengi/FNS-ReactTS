@@ -12,6 +12,9 @@ const theme = createTheme({
       main: red[900],
     },
   },
+  typography: {
+    fontSize: 10
+  },
 });
 export default function LightTheme( {children}: {children: React.ReactNode} ) {
   return (

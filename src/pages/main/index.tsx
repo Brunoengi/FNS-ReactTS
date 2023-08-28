@@ -147,12 +147,14 @@ export default function Main() {
                   labelText='M.F.S.'
                   id='serviceBendingMoment'
                   textPopOver='Momento Fletor de Serviço'
+                  width='100px'
 
                 />
                 <LineForm
                   labelText='Coef.Beta'
                   id='beta'
                   textPopOver='Coeficiente beta de redistribuição dos momentos'
+                  width='100px'
                 />
 
               </>

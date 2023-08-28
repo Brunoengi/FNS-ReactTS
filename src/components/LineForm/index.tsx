@@ -8,7 +8,7 @@ import { useContext } from "react"
 import { MainFormContext } from "context/MainFormContext"
 
 
-export default function LineForm({ labelText = '', id, width = '15ch', unit, labelPopOver = '?', textPopOver, type = 'input', dataset = [], context, labelSelect, endText }: ILineForm) {
+export default function LineForm({ labelText = '', id, width = '80px', unit, labelPopOver = '?', textPopOver, type = 'input', dataset = [], context, labelSelect, endText }: ILineForm) {
 
   const { inputsValue, changeInputValue } = useContext(MainFormContext)
 

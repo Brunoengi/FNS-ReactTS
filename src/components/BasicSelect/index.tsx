@@ -15,11 +15,12 @@ export default function BasicSelect({ dataset = [], labelSelect, context, endTex
   console.log(dataset)
   return (
     <Box>
-      <FormControl sx={{ m: 1, width: '20ch' }} size='small'>
+      <FormControl sx={{ m: 1 }} size='small'>
         <InputLabel>
           {context}
         </InputLabel>
         <Select
+          className={styles.select}
           id={id}
           label={labelSelect}
           onChange={(e) => changeInputValue(id, Number(e.target.value))}
